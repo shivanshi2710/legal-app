@@ -4,6 +4,7 @@ require_relative './models/case'
 
 set :bind, '0.0.0.0'
 set :port, 4567
+set :protection, except: :host_header
 
 before do
   content_type :json

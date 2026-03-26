@@ -10,7 +10,7 @@ before do
 end
 
 get '/' do
-  { message: 'Legal App is running successfully' }.to_json
+  { message: 'Legal App is running successfully!!' }.to_json
 end
 
 get '/cases' do

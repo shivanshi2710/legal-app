@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: legal-app-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: legal-app
+  template:
+    metadata:
+      labels:
+        app: legal-app
+    spec:
+      containers:
+        - name: legal-app
+          image: shivanshishri2710/legal-app:latest
+          ports:
+            - containerPort: 4567

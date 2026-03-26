@@ -1,0 +1,30 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: docker build -t legal-app .
+
+      - name: Run container
+        run: docker run -d -p 4567:4567 --name legal-container legal-app
+
+      - name: Wait for app to start
+        run: sleep 10
+
+      - name: Test root endpoint
+        run: curl http://localhost:4567
+
+      - name: Test cases endpoint
+        run: curl http://localhost:4567/cases

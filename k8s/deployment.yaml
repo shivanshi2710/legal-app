@@ -17,3 +17,4 @@ spec:
           image: shivanshishri2710/legal-app:latest
           ports:
             - containerPort: 4567
+          imagePullPolicy: Always

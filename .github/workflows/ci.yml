@@ -24,7 +24,7 @@ jobs:
       - name: Push Docker image
         run: docker push ${{ secrets.DOCKER_USERNAME }}/legal-app:latest
 
-      # 🧪 Run container (optional test)
+      # 🧪 Test container
       - name: Run container
         run: docker run -d -p 4567:4567 --name legal-container ${{ secrets.DOCKER_USERNAME }}/legal-app:latest
 
@@ -36,15 +36,16 @@ jobs:
           curl http://localhost:4567
           curl http://localhost:4567/cases
 
-      # ☁️ Deploy to EC2 (K8s)
+      # ☁️ Deploy to EC2
       - name: Deploy to Kubernetes
         uses: appleboy/ssh-action@v0.1.6
         with:
           host: ${{ secrets.EC2_HOST }}
-          username: ubuntu
+          username: ec2-user
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            cd YOUR_REPO_NAME
+            cd legal-app
+            git pull
             kubectl apply -f k8s/deployment.yaml
             kubectl apply -f k8s/service.yaml
             kubectl rollout restart deployment legal-app-deployment

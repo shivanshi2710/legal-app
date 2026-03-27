@@ -27,3 +27,15 @@
   background: #e74c3c;
   color: white;
 }
+
+button {
+  margin-right: 8px;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.8;
+}

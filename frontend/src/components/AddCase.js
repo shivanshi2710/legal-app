@@ -20,7 +20,8 @@ const AddCase = () => {
       }),
     });
 
-    alert("Case Added ✅");
+    setTitle("");
+    setClient("");
     window.location.reload();
   };
 

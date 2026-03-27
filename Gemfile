@@ -4,3 +4,4 @@ gem "sinatra"
 gem "rackup"
 gem "puma"
 gem "json"
+gem 'sinatra-cross_origin'

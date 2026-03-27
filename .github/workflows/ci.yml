@@ -29,7 +29,7 @@ jobs:
       # 🧪 BACKEND TEST
       # =========================
       - name: Run Backend Container
-        run: docker run -d -p 4567:4567 --name backend-container ${{ secrets.DOCKER_USERNAME }}/legal-app:latest
+        run: docker run -d -p 4567:4567 --name legal-container ${{ secrets.DOCKER_USERNAME }}/legal-app:latest
 
       - name: Wait for backend
         run: sleep 10

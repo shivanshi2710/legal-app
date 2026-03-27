@@ -8,7 +8,7 @@ const AddCase = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    await fetch("http://ec2-15-135-112-131.ap-southeast-2.compute.amazonaws.com/cases", {
+    await fetch("http://ec2-15-135-112-131.ap-southeast-2.compute.amazonaws.com:30007/cases", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -39,10 +39,3 @@ devops-rails-legal-app22/
 └── .github/
     └── workflows/
         └── ci.yml
-
-
-sudo systemctl start docker
-minikube start --driver=docker
-kubectl apply -f k8s/deployment.yaml
-kubectl apply -f k8s/service.yaml
-nohup sudo socat TCP-LISTEN:80,fork TCP:$(minikube ip):30007 > socat.log 2>&1 &

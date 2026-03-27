@@ -12,7 +12,7 @@ This is a beginner-friendly DevOps project built using Ruby, Docker, GitHub Acti
 - GitHub Actions
 - Kubernetes
 - VS Code
-## Run Locally
+## Run Locally 
 ```bash
 docker build -t legal-app .
 docker run -p 4567:4567 legal-app

@@ -5,7 +5,7 @@ const CaseList = () => {
   const [cases, setCases] = useState([]);
 
   useEffect(() => {
-    fetch("http://ec2-15-135-112-131.ap-southeast-2.compute.amazonaws.com:30007/cases")
+    fetch("/cases")
       .then((res) => res.json())
       .then((data) => setCases(data));
   }, []);

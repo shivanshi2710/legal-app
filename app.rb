@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'json'
 require_relative './models/case'
+require 'sinatra/cross_origin'
 
 set :bind, '0.0.0.0'
 set :port, 4567
@@ -11,6 +12,14 @@ set :host_authorization, { permitted_hosts: [] }
 
 before do
   content_type :json
+end
+
+configure do
+  enable :cross_origin
+end
+
+before do
+  response.headers['Access-Control-Allow-Origin'] = '*'
 end
 
 get '/' do
